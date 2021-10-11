@@ -1,0 +1,25 @@
+{
+  "name": "vfc-sass-to-tailwind",
+  "version": "0.1.0",
+  "description": "A script to automatically migrate Vue file with sass style to Tailwind",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node app/index.js --withJIT",
+    "build": "babel app/ --out-dir dist --presets=@babel/env",
+    "serve": "npm run build && node dist/"
+  },
+  "author": "CaptainYouz <anas.mammeri@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1"
+  },
+  "dependencies": {
+    "sass": "^1.39.0",
+    "cheerio": "^1.0.0-rc.10"
+  }
+}
