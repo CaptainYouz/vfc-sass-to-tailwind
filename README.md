@@ -4,7 +4,9 @@ It is based on Tailwind DS configuration.
 ## Notes
 The code is a quick and dirty one, and there are some bugs
 ## Bugs
-It does not handle VFC that uses variables. If you want to generate it, you'll have to comment the lines that uses variables, sorry :trollface:
+- It does not handle css declaration such as `border: 1px solid red`. Since it's based on tailwind config, it only detects non grouped declaration.
+- It is based on the DS Tailwind configuration, so every 'non-related' css will be considered as JIT. For example `padding-left: 34px` will become `padding-left-[34px]`
+- It does not handle VFC that uses variables. If you want to generate it, you'll have to comment the lines that uses variables, sorry :trollface:
 ## How to use ?
 ```
 npm i
@@ -14,13 +16,16 @@ node dist/ YOUR_FILE_PATH_1 YOUR_FILE_PATH_2 YOUR_FILE_PATH_N
 ## Available option
 ### Write in file
 By adding the `write-in-file` flag, the result will be inserted on top of your file
-```node dist/ --write-in-file YOUR_FILE_PATH```
+```
+node dist/ --write-in-file YOUR_FILE_PATH
+```
 ### With JIT
 By adding the `withJIT` flag, style that can't be handle will be added to the result.
 
 Example: `padding: 1.2rem 0` will become `padding-[1.2rem 0]`.
 
 Add this flag if you want to have all the css in the result
+
 ```node dist/ --withJIT YOUR_FILE_PATH```
 
 ## Example
